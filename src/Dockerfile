@@ -1,6 +1,6 @@
 FROM alpine:3.10
 
-ENV WKHTMLTOX_VERSION=0.12.5
+ENV WKHTMLTOX_VERSION=0.12.4
 ENV REPO=https://github.com/wkhtmltopdf/wkhtmltopdf.git
 
 # Copy patches
