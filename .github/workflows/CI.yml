@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, wkhtmltopdf-0.12.6 ]
   pull_request:
     branches: [ master ]
 
@@ -19,6 +19,7 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       run: |
+           docker build . -f src/Dockerfile -t madnight/alpine-wkhtmltopdf-builder:0.12.5-alpine3.10
            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
            docker pull madnight/alpine-wkhtmltopdf-builder:0.12.5-alpine3.10 || true
            docker build \
